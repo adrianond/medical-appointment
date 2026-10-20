@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug server.ts (Fastify)",
+            "runtimeArgs": ["--env-file", ".env"],
+            "program": "${workspaceFolder}/src/index.ts",
+            "console": "integratedTerminal",
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug LangGraph Studio (dev)",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run", "langgraph:serve"],
+            "console": "integratedTerminal",
+            "skipFiles": ["<node_internals>/**"],
+            "autoAttachChildProcesses": true,
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "!**/node_modules/**"
+            ]
+        }
+    ]
+}
